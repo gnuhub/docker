@@ -243,7 +243,7 @@ See also:
 
 This example specifies that the `PATH` is
 `.`, and so all the files in the local directory get
-tar`d and sent to the Docker daemon. The `PATH`
+`tar`d and sent to the Docker daemon. The `PATH`
 specifies where to find the files for the "context" of the build on the
 Docker daemon. Remember that the daemon could be running on a remote
 machine and that no parsing of the Dockerfile
@@ -497,7 +497,7 @@ Import to docker via pipe and *stdin*.
 
 **Import from a local directory:**
 
-    $ sudo tar -c . | docker import - exampleimagedir
+    $ sudo tar -c . | sudo docker import - exampleimagedir
 
 Note the `sudo` in this example – you must preserve
 the ownership of the files (especially root ownership) during the
@@ -536,7 +536,7 @@ Return low-level information on a container/image
 By default, this will render all results in a JSON array. If a format is
 specified, the given template will be executed for each result.
 
-Go's[text/template](http://golang.org/pkg/text/template/) package
+Go's [text/template](http://golang.org/pkg/text/template/) package
 describes all the details of the format.
 
 ### Examples
@@ -796,7 +796,7 @@ removed before the image is removed.
 
     $ sudo docker images
     REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
-    test1                     latest              fd484f19954f        23 seconds ago      7 B (virtual 4.964 MB)
+    test                      latest              fd484f19954f        23 seconds ago      7 B (virtual 4.964 MB)
     $ sudo docker rmi test
     Untagged: fd484f19954f4920da7ff372b5067f5b7ddb2fd3830cecd17b96ea9e286ba5b8
     Deleted: fd484f19954f4920da7ff372b5067f5b7ddb2fd3830cecd17b96ea9e286ba5b8
@@ -989,10 +989,10 @@ optionally suffixed with `:ro` or `:rw` to mount the volumes in read-only
 or read-write mode, respectively. By default, the volumes are mounted in
 the same mode (read write or read only) as the reference container.
 
-The `-a` flag tells `docker run` to bind to the container'sstdin, stdout or
+The `-a` flag tells `docker run` to bind to the container's stdin, stdout or
 stderr. This makes it possible to manipulate the output and input as needed.
 
-    $ sudo echo "test" | docker run -i -a stdin ubuntu cat -
+    $ echo "test" | sudo docker run -i -a stdin ubuntu cat -
 
 This pipes data into a container and prints the container's ID by attaching
 only to the container'sstdin.
@@ -1003,7 +1003,7 @@ This isn't going to print anything unless there's an error because We've
 only attached to the stderr of the container. The container's logs still
    store what's been written to stderr and stdout.
 
-    $ sudo cat somefile | docker run -i -a stdin mybuilder dobuild
+    $ cat somefile | sudo docker run -i -a stdin mybuilder dobuild
 
 This is how piping a file into a container could be done for a build.
 The container's ID will be printed after the build is done and the build
