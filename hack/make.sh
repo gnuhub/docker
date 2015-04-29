@@ -114,8 +114,8 @@ fi
 
 IAMSTATIC='true'
 source "$SCRIPTDIR/make/.go-autogen"
-LDFLAGS='-w'
-
+#LDFLAGS='-w'
+LDFLAGS=''
 LDFLAGS_STATIC='-linkmode external'
 # Cgo -H windows is incompatible with -linkmode external.
 if [ "$(go env GOOS)" == 'windows' ]; then
