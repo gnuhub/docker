@@ -37,6 +37,7 @@ RUN apt-get update && apt-get install -y \
 	curl \
 	dpkg-sig \
 	git \
+	gdb \
 	iptables \
 	libapparmor-dev \
 	libcap-dev \
